@@ -83,7 +83,9 @@ const pngLite = {
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
 const SHOTS = path.join(ROOT, 'qa', 'screenshots')
 const PORT = 5233
-const BASE = `http://127.0.0.1:${PORT}`
+/** Point the suite at a deployment with QA_URL=https://... to verify production. */
+const BASE = process.env.QA_URL || `http://127.0.0.1:${PORT}`
+const LOCAL = !process.env.QA_URL
 
 const VIEWPORTS = [
   { name: 'wide', width: 1920, height: 1080, dsf: 1 },
@@ -126,11 +128,13 @@ function note(ok, label, detail = '') {
   console.log(`${ok ? 'PASS' : 'FAIL'}  ${label}${detail ? '  (' + detail + ')' : ''}`)
 }
 
-const server = spawn(
-  path.join(ROOT, 'node_modules', '.bin', 'vite'),
-  ['preview', '--port', String(PORT), '--strictPort', '--host', '127.0.0.1'],
-  { cwd: ROOT, stdio: 'ignore' },
-)
+const server = LOCAL
+  ? spawn(
+      path.join(ROOT, 'node_modules', '.bin', 'vite'),
+      ['preview', '--port', String(PORT), '--strictPort', '--host', '127.0.0.1'],
+      { cwd: ROOT, stdio: 'ignore' },
+    )
+  : null
 
 async function waitForServer() {
   for (let i = 0; i < 60; i += 1) {
@@ -204,7 +208,7 @@ async function run() {
     page.on('request', (r) => {
       try {
         const host = new URL(r.url()).host
-        if (host.startsWith('127.0.0.1') || host.startsWith('localhost')) return
+        if (host === new URL(BASE).host) return
         if (ALLOWED_HOSTS.includes(host)) return
         thirdParty.add(host)
       } catch {
@@ -447,6 +451,6 @@ try {
 } catch (e) {
   console.error(e)
 } finally {
-  server.kill()
+  server?.kill()
 }
 process.exit(code === 0 ? 0 : 1)

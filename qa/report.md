@@ -1,6 +1,6 @@
 # Prime DCX — QA report
 
-Generated 2026-09-07T16:45:09.846Z
+Generated 2026-09-07T16:55:44.263Z
 
 **153/153 checks passed.**
 
@@ -10,7 +10,7 @@ Generated 2026-09-07T16:45:09.846Z
 | --- | --- | --- |
 | PASS | [wide] animation loop running | 55 fps |
 | PASS | [wide] WebGL canvas present |  |
-| PASS | [wide] canvas is not blank | lit 15.1%, peak 255 |
+| PASS | [wide] canvas is not blank | lit 15.2%, peak 255 |
 | PASS | [wide] page scrolls | 0 → 1400 |
 | PASS | [wide] scroll samples captured | 1200,1200,1200,1200,1200,1200 |
 | PASS | [wide] chapter #engine rendered | h=1080 |
@@ -36,7 +36,7 @@ Generated 2026-09-07T16:45:09.846Z
 | PASS | [wide] no failed requests |  |
 | PASS | [desktop] animation loop running | 55 fps |
 | PASS | [desktop] WebGL canvas present |  |
-| PASS | [desktop] canvas is not blank | lit 16.3%, peak 255 |
+| PASS | [desktop] canvas is not blank | lit 16.5%, peak 255 |
 | PASS | [desktop] page scrolls | 0 → 1400 |
 | PASS | [desktop] scroll samples captured | 1200,1200,1200,1200,1200,1200 |
 | PASS | [desktop] chapter #engine rendered | h=900 |
@@ -62,7 +62,7 @@ Generated 2026-09-07T16:45:09.846Z
 | PASS | [desktop] no failed requests |  |
 | PASS | [laptop] animation loop running | 55 fps |
 | PASS | [laptop] WebGL canvas present |  |
-| PASS | [laptop] canvas is not blank | lit 17.0%, peak 255 |
+| PASS | [laptop] canvas is not blank | lit 17.1%, peak 255 |
 | PASS | [laptop] page scrolls | 0 → 1400 |
 | PASS | [laptop] scroll samples captured | 1200,1200,1200,1200,1200,1200 |
 | PASS | [laptop] chapter #engine rendered | h=800 |
@@ -88,7 +88,7 @@ Generated 2026-09-07T16:45:09.846Z
 | PASS | [laptop] no failed requests |  |
 | PASS | [tablet] animation loop running | 55 fps |
 | PASS | [tablet] WebGL canvas present |  |
-| PASS | [tablet] canvas is not blank | lit 8.7%, peak 245 |
+| PASS | [tablet] canvas is not blank | lit 8.6%, peak 245 |
 | PASS | [tablet] page scrolls | 0 → 1400 |
 | PASS | [tablet] chapter #engine rendered | h=942 |
 | PASS | [tablet] chapter #access rendered | h=562 |
