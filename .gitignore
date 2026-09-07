@@ -1,0 +1,20 @@
+# dependencies / build output
+node_modules
+dist
+tsconfig.tsbuildinfo
+.vercel
+
+# Blender working files.
+# blender/exports holds the 5504x3072 Higgsfield masters and the 2560x1440
+# reference renders (~167 MB). The web-sized derivatives that the site actually
+# serves are committed under public/assets/images. Reference renders are
+# reproducible with `blender --background --python blender/scripts/<file>.py`.
+blender/exports/
+
+# QA output is reproducible with `npm run qa`; the report is kept.
+qa/screenshots/
+
+# misc
+__pycache__/
+*.blend1
+.DS_Store
