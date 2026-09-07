@@ -18,3 +18,4 @@ qa/screenshots/
 __pycache__/
 *.blend1
 .DS_Store
+.env*
