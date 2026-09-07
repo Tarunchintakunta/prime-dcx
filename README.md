@@ -6,13 +6,18 @@ Blender, exported as GLB, and rendered live in WebGL, with Higgsfield frames and
 clips generated **from those same Blender renders** as the supporting media
 layer.
 
+**Live:** https://prime-dcx.vercel.app
+
 ```bash
 npm install
 npm run dev      # http://localhost:4310
 npm run build    # type-check + production bundle into dist/
 npm run preview  # serve the build
-npm run qa       # Playwright visual + compliance QA → qa/report.md
+npm run qa       # Playwright visual + compliance QA, writes qa/report.md
+QA_URL=https://prime-dcx.vercel.app npm run qa   # same suite against production
 ```
+
+Pushes to `main` deploy automatically through Vercel.
 
 ## What it is
 
@@ -118,14 +123,36 @@ missing.
 
 ## QA
 
-`npm run qa` serves the production build and drives Chromium at 1920×1080,
-1440×900 and 390×844. It captures a screenshot per chapter per viewport into
+`npm run qa` serves the production build and drives Chromium at six widths from
+360 to 1920 (`wide`, `desktop`, `laptop`, `tablet`, `mobile`, `small`). It
+captures a screenshot per chapter at the three reference widths into
 `qa/screenshots/` and asserts: the animation loop runs, the WebGL canvas is
 actually painting (measured from the composited screenshot, since the drawing
 buffer is not preserved), the page scrolls, every chapter renders, there is no
 horizontal overflow, no type under 10px, no prohibited claims, the required
-disclosures are present, and no console errors or failed requests. Results are
-written to `qa/report.md`.
+disclosures are present, no em dashes appear in any rendered copy, no
+third-party host is requested at runtime, and there are no console errors or
+failed requests. 153 assertions; results are written to `qa/report.md`.
+
+## Robustness
+
+The 3D layer degrades in stages rather than failing outright. If a WebGL
+context cannot be created the page renders the Higgsfield stills instead; if
+post-processing throws it drops to no bloom; if the renderer throws an error
+boundary catches it and falls back to stills. The studio environment is built
+from lightformers in the scene rather than a preset HDRI, because drei's presets
+fetch from a third-party CDN and a blocked request there took the whole canvas
+down.
+
+## SEO and answer engines
+
+`index.html` carries Open Graph and Twitter cards, a canonical URL, and an
+`Organization` / `WebSite` / `WebPage` / `FAQPage` JSON-LD graph. `public/`
+holds `robots.txt` (explicitly allowing the major answer-engine crawlers),
+`sitemap.xml`, and `llms.txt` summarising the offering in plain text for AI
+retrieval. A `<noscript>` block states the offering and the risk disclosure for
+crawlers that do not execute JavaScript. **Structured data is limited to facts
+the page states**: no ratings, awards, regulator, user counts or pricing.
 
 ## Stack
 
