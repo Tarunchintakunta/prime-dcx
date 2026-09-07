@@ -1,0 +1,9 @@
+# Vercel does not read .gitignore, so the heavy source-of-truth artefacts have
+# to be excluded here too. None of this is needed to build the site.
+node_modules
+dist
+blender
+qa
+.git
+*.blend
+*.blend1
