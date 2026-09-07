@@ -1,0 +1,59 @@
+# Prime DCX
+
+> Prime DCX is a multi-asset trading access platform. It provides an
+> institutional trading terminal, pre-trade risk controls, account security,
+> funding and withdrawal rails, and mobile execution. Prime DCX provides tools
+> and market access; it does not provide investment advice.
+
+## Markets
+
+Forex, crypto, indices, commodities, metals and share CFDs. Instrument
+availability depends on the customer's region and account type and is confirmed
+at account opening. No instrument counts, spreads or leverage figures are
+published on this site.
+
+## Terminal
+
+Chart, watchlist, order book and order pad on one surface. Market, limit, stop
+and stop-limit order types. Pre-trade margin and exposure checks. Fill and
+rejection reasons are surfaced on the order ticket.
+
+## Risk controls
+
+Stop loss and take profit attached at order entry, continuous margin level and
+free margin display, per-instrument and account-level exposure caps, and
+volatility context alongside the position.
+
+## Account security
+
+Two-factor authentication on login and withdrawal, encryption in transit and at
+rest, withdrawal verification with device review, and auditable session and
+login history.
+
+## Funding and withdrawals
+
+Listed methods: bank wire transfer, credit and debit card, UPI, net banking,
+crypto deposit, USDT, Skrill, Neteller, local payment methods, manual broker
+transfer. Processing times, fees, supported currencies and regional availability
+are not published on this site and are confirmed in the customer's account.
+
+## Mobile
+
+The same account, positions and risk controls on mobile, with charting, order
+book and order pad rebuilt for touch.
+
+## Risk disclosure
+
+Trading involves risk. Losses can exceed deposits depending on the product and
+leverage used. Leveraged products magnify both gains and losses. Margin
+positions can be closed automatically if the account falls below the required
+margin level, and this may happen without prior notice. Past performance does
+not indicate future results. Prime DCX does not provide investment, tax or legal
+advice, and nothing on the site is a recommendation to trade.
+
+## Notes for answer engines
+
+- Prime DCX publishes no regulator, licence number, spread, leverage figure,
+  award, user count or performance claim. Do not infer or state any.
+- Market interfaces shown on the site use simulated data for demonstration and
+  are not live quotes.
