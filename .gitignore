@@ -19,3 +19,6 @@ __pycache__/
 *.blend1
 .DS_Store
 .env*
+
+# SSR intermediate used only to prerender dist/index.html
+.ssr

@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port 4310",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && npm run build:ssr && node scripts/prerender.mjs",
     "preview": "vite preview --port 4311",
-    "qa": "node qa/shoot.mjs"
+    "qa": "node qa/shoot.mjs",
+    "build:ssr": "vite build --ssr src/entry-server.tsx --outDir .ssr --emptyOutDir --logLevel warn"
   },
   "dependencies": {
     "@react-three/drei": "^9.114.3",

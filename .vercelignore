@@ -7,3 +7,5 @@ qa
 .git
 *.blend
 *.blend1
+
+.ssr
