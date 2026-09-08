@@ -46,6 +46,13 @@
     />
     <meta name="twitter:image" content="https://prime-dcx.vercel.app/og-image.jpg" />
 
+    <!-- Marks the document as scripted before first paint, so the entrance
+         animations only apply where they can actually run. Without JavaScript
+         the prerendered copy stays visible. -->
+    <script>
+      document.documentElement.classList.add('js')
+    </script>
+
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
 
@@ -151,25 +158,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <noscript>
-      <div style="max-width: 70ch; margin: 12vh auto; padding: 0 24px; font-family: system-ui, sans-serif; color: #e9eef5">
-        <h1 style="font-weight: 300">Prime DCX. The Market Engine.</h1>
-        <p>
-          Prime DCX is a multi-asset trading access platform covering forex, crypto, indices,
-          commodities, metals and share CFDs. It provides an institutional terminal with charting,
-          an order book and an order pad, pre-trade margin and exposure checks, account security
-          with two-factor authentication and withdrawal verification, funding and withdrawal rails,
-          and mobile execution.
-        </p>
-        <p>
-          <strong>
-            Trading involves risk. Losses can exceed deposits depending on the product and leverage
-            used. Prime DCX provides tools and access; users make their own decisions.
-          </strong>
-        </p>
-        <p>This site needs JavaScript enabled to show the interactive experience.</p>
-      </div>
-    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

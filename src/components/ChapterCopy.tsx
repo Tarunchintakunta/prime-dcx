@@ -5,6 +5,16 @@ import type { Chapter } from '../data/chapters'
 
 gsap.registerPlugin(ScrollTrigger)
 
+/** Belt and braces for headless renderers.
+ *
+ *  Reveals are driven by ScrollTrigger, so a crawler that renders the page but
+ *  never scrolls would leave every below-the-fold section at opacity 0 and
+ *  could treat that copy as hidden. After a short grace period, force
+ *  everything visible. Real visitors have scrolled long before this fires. */
+if (typeof window !== 'undefined') {
+  window.setTimeout(() => document.documentElement.classList.add('reveal-all'), 2500)
+}
+
 interface Props {
   chapter: Chapter
   children?: ReactNode
