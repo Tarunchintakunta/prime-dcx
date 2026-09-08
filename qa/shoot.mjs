@@ -183,6 +183,35 @@ async function run() {
   await rm(SHOTS, { recursive: true, force: true })
   await mkdir(SHOTS, { recursive: true })
 
+  // --- the served HTML must carry the content, not just an empty root -----
+  // Googlebot renders JavaScript on a delayed second pass and the AI crawlers
+  // this site wants to be cited by do not render it at all, so the prerender
+  // is what they actually read.
+  const rawHtml = await (await fetch(BASE)).text()
+  const rawText = rawHtml
+    .replace(/<script[\s\S]*?<\/script>/g, ' ')
+    .replace(/<style[\s\S]*?<\/style>/g, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+  const rawWords = rawText.split(' ').filter(Boolean).length
+  note(rawWords > 800, 'prerendered HTML carries the page copy', `${rawWords} words before JS`)
+
+  for (const phrase of [
+    'institutional terminal',
+    'Bank Wire Transfer',
+    'Manual Broker Transfer',
+    'Losses can exceed deposits',
+  ]) {
+    note(
+      rawText.toLowerCase().includes(phrase.toLowerCase()),
+      `prerendered HTML includes "${phrase}"`,
+    )
+  }
+
+  const h1Count = (rawHtml.match(/<h1[\s>]/g) || []).length
+  note(h1Count === 1, 'exactly one h1 in the served HTML', `found ${h1Count}`)
+
   const browser = await chromium.launch({
     args: ['--use-gl=angle', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'],
   })

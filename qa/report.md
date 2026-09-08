@@ -1,16 +1,22 @@
 # Prime DCX — QA report
 
-Generated 2026-09-07T16:55:44.263Z
+Generated 2026-09-08T06:20:23.601Z
 
-**153/153 checks passed.**
+**159/159 checks passed.**
 
 ## Checks
 
 | Result | Check | Detail |
 | --- | --- | --- |
+| PASS | prerendered HTML carries the page copy | 1841 words before JS |
+| PASS | prerendered HTML includes "institutional terminal" |  |
+| PASS | prerendered HTML includes "Bank Wire Transfer" |  |
+| PASS | prerendered HTML includes "Manual Broker Transfer" |  |
+| PASS | prerendered HTML includes "Losses can exceed deposits" |  |
+| PASS | exactly one h1 in the served HTML | found 1 |
 | PASS | [wide] animation loop running | 55 fps |
 | PASS | [wide] WebGL canvas present |  |
-| PASS | [wide] canvas is not blank | lit 15.2%, peak 255 |
+| PASS | [wide] canvas is not blank | lit 15.1%, peak 255 |
 | PASS | [wide] page scrolls | 0 → 1400 |
 | PASS | [wide] scroll samples captured | 1200,1200,1200,1200,1200,1200 |
 | PASS | [wide] chapter #engine rendered | h=1080 |
@@ -36,7 +42,7 @@ Generated 2026-09-07T16:55:44.263Z
 | PASS | [wide] no failed requests |  |
 | PASS | [desktop] animation loop running | 55 fps |
 | PASS | [desktop] WebGL canvas present |  |
-| PASS | [desktop] canvas is not blank | lit 16.5%, peak 255 |
+| PASS | [desktop] canvas is not blank | lit 16.4%, peak 255 |
 | PASS | [desktop] page scrolls | 0 → 1400 |
 | PASS | [desktop] scroll samples captured | 1200,1200,1200,1200,1200,1200 |
 | PASS | [desktop] chapter #engine rendered | h=900 |
@@ -62,7 +68,7 @@ Generated 2026-09-07T16:55:44.263Z
 | PASS | [desktop] no failed requests |  |
 | PASS | [laptop] animation loop running | 55 fps |
 | PASS | [laptop] WebGL canvas present |  |
-| PASS | [laptop] canvas is not blank | lit 17.1%, peak 255 |
+| PASS | [laptop] canvas is not blank | lit 17.2%, peak 255 |
 | PASS | [laptop] page scrolls | 0 → 1400 |
 | PASS | [laptop] scroll samples captured | 1200,1200,1200,1200,1200,1200 |
 | PASS | [laptop] chapter #engine rendered | h=800 |
